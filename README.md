@@ -1,29 +1,55 @@
-![React Logo](../.github/images/react.svg)
+# Module Project: Advanced Form Management - User Onboarding
+## Project Description
 
-# React Example
+We've seen many different styles of form management by now -- simple to complex. Today we are going to unleash your inner form-wizard! 🧙
 
-This directory is a brief example of a [React](https://reactjs.org/) app with [Serverless Functions](https://zeit.co/docs/v2/serverless-functions/introduction) that can be deployed with ZEIT Now and zero configuration.
+## Set Up The Project
 
-## Deploy Your Own
+- [ ] Start off by installing a blank React app by using Create React App.
+- [ ] Add the following as dependencies inside your React app:
+  - `formik`
+  - `yup`
+  - `axios`
+- [ ] Create a component file called `Form.js`, import it into your `App.js` file, and place the component in your JSX there.
 
-Deploy your own React project, along with Serverless Functions, with ZEIT Now.
+## STEP 1 - Create Your Formik Form
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/zeit/now-examples/tree/master/create-react-app-functions)
+We want to create a form to onboard a new user to our system. We need _at least_ the following pieces of information about our new user:
 
-_Live Example: https://create-react-app-functions.now-examples.now.sh/_
+- [ ] Name
+- [ ] Email
+- [ ] Password
+- [ ] Terms of Service (checkbox)
+- [ ] A Submit button to send our form data to the server.
 
-### How We Created This Example
+## STEP 2 - Implement Form Validation and Error Messaging
 
-To get started with React, along with [Serverless Functions](https://zeit.co/docs/v2/serverless-functions/introduction), with ZEIT Now, you can use the [Create-React-App CLI](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) to initialize the project:
+Form validation is one of the facets of an application that makes it feel polished and controlled from a user perspective. With that in mind, implement the following:
 
-```shell
-$ npx create-react-app my-app
-```
+- [ ] Using Yup, set up _at least_ two different validations for each field along with custom error codes that will display on screen when validation fails.
 
-### Deploying From Your Terminal
+## STEP 3 - Make a POST Request
 
-You can deploy your new React project, along with [Serverless Functions](https://zeit.co/docs/v2/serverless-functions/introduction), with a single command from your terminal using [Now CLI](https://zeit.co/download):
+Being able to `POST` data is a key skill of any developer, no matter your skill level.
 
-```shell
-$ now
-```
+- [ ] Craft a `POST` request using `axios` that sends your form data to the following endpoint: _https://reqres.in/api/users_
+- [ ] Verify using a `console.log()` that you are receiving a successful response back
+
+(Note: For those that are curious, we're using [reqres.in](https://reqres.in/) for this assignment's API. It's a free API that allows us to simulate a `POST` request for any data that we send it. Pretty awesome!)
+
+## STEP 4 - Display Returned Data to Screen
+
+When you get your data back, you will want to do something with it, right? Let's display a list of users in our app.
+
+- [ ] Set up a state property called `users` that is initialized with an empty array
+- [ ] Every time you make a `POST` request, and get that new user data back, update your `users` state with the new user added to the array
+- [ ] Render `users` in your app. This can be done in the `Form` component, or you can pass the array down to another component and render the `users` there
+
+## Stretch Goals
+
+The following are stretch goals that you should attempt _after_ you meet MVP for your project:
+
+- [ ] Add basic styling to your form in your app. Make it look pretty with any styling method you choose.
+- [ ] Implement a dropdown menu in your Formik form. Add a `role` value to your Formik HOC and add a dropdown with different roles for your users.
+- [ ] Create 3 new inputs inside your Formik form of your choice along with corresponding validation and error messaging
+- [ ] Add to your existing handling so that, if a user inputs their email as `waffle@syrup.com`, they receive an error message in their form that says _"That email is already taken."_
